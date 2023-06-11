@@ -3,8 +3,8 @@ POST http://localhost:3000/auth/signup
 content-Type: application/json
 
 {
-    "email":"john_0392@gmail.com",
-    "password":"123456"
+    "email":"ron_0391@gmail.com",
+    "password":"1234567"
 }
 
 ### SignIn the User
@@ -35,3 +35,6 @@ content-type: application/json
 {
     "password":"aaa"
 }
+
+### GET COLOR
+GET http://localhost:3000/auth/colors
