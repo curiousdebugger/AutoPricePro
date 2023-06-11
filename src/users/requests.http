@@ -3,8 +3,17 @@ POST http://localhost:3000/auth/signup
 content-Type: application/json
 
 {
-    "email":"kshitij@abc.com",
-    "password":"ajsdljkasd"
+    "email":"john_0392@gmail.com",
+    "password":"123456"
+}
+
+### SignIn the User
+POST http://localhost:3000/auth/signIn
+content-Type: application/json
+
+{
+    "email":"john_0392@gmail.com",
+    "password":"123456"
 }
 
 ### Find a user with ID
@@ -16,7 +25,7 @@ GET http://localhost:3000/auth?email=abc@abc.com
 content-type: application/json
 
 ### Delete user by id
-DELETE  http://localhost:3000/auth/1
+DELETE  http://localhost:3000/auth/5
 content-type: application/json
 
 ### Update user by id
