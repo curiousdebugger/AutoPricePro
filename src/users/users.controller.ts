@@ -34,9 +34,17 @@ export class UsersController {
 
   @Get('/getSignedInUser')
   getSignedInUser(@Session() session : any){
+    if(!session.userId){
+        throw new NotFoundException("No User Signed In")
+    }
     return this.usersService.findOne(session.userId);
   }
 
+
+  @Post ('/signout')
+  signOut(@Session() session: any){
+    session.userId = null;
+  }
 
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session:any) {

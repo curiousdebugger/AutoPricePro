@@ -38,3 +38,6 @@ content-type: application/json
 
 ### GET Signed In User
 GET http://localhost:3000/auth/getSignedInUser
+
+### Sign out user
+POST http://localhost:3000/auth/signOut
