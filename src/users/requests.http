@@ -36,5 +36,5 @@ content-type: application/json
     "password":"aaa"
 }
 
-### GET COLOR
-GET http://localhost:3000/auth/colors
+### GET Signed In User
+GET http://localhost:3000/auth/getSignedInUser

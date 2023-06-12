@@ -27,10 +27,16 @@ export class UsersController {
     session.color = color
   }
 
-  @Get('/colors')
+  @Get('/getSessionVars')
   getColor(@Session() session : any){
-    return session.userId;
+    return {"userId": session.userId};
   }
+
+  @Get('/getSignedInUser')
+  getSignedInUser(@Session() session : any){
+    return this.usersService.findOne(session.userId);
+  }
+
 
   @Post('/signup')
   async createUser(@Body() body: CreateUserDto, @Session() session:any) {
@@ -47,6 +53,7 @@ export class UsersController {
   }
 
   
+
   @Get('/:id')
   async findUser(@Param('id') id: string) {
     const user = await this.usersService.findOne(parseInt(id));
