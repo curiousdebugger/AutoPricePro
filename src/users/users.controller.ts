@@ -8,7 +8,7 @@ import {
   Query,
   Delete,
   NotFoundException,
-  Session
+  Session,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { UsersService } from './users.service';
@@ -16,6 +16,8 @@ import { AuthService } from './auth.service';
 import { UpdateUserDto } from './dtos/update-user.dto';
 import { UserDto } from './dtos/user.dto';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
+import { CurrentUser } from './decorators/current-user.decorator';
+import { User } from './user.entity';
 
 @Controller('auth')
 @Serialize(UserDto)
@@ -32,14 +34,19 @@ export class UsersController {
     return {"userId": session.userId};
   }
 
-  @Get('/getSignedInUser')
-  getSignedInUser(@Session() session : any){
-    if(!session.userId){
-        throw new NotFoundException("No User Signed In")
-    }
-    return this.usersService.findOne(session.userId);
-  }
+//   @Get('/getSignedInUser')
+//   getSignedInUser(@Session() session : any){
+//     if(!session.userId){
+//         throw new NotFoundException("No User Signed In")
+//     }
+//     return this.usersService.findOne(session.userId);
+//   }
 
+  
+  @Get('/getSignedInUser')
+  getSignedInUser(@CurrentUser() user : User){
+    return user
+  }
 
   @Post ('/signout')
   signOut(@Session() session: any){
