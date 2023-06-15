@@ -19,7 +19,7 @@ import { UserDto } from './dtos/user.dto';
 import { Serialize } from 'src/interceptors/serialize.interceptor';
 import { CurrentUser } from './decorators/current-user.decorator';
 import { User } from './user.entity';
-import { AuthGaurd } from 'src/gaurds/auth.haurd';
+import { AuthGaurd } from 'src/gaurds/auth.gaurd';
 
 
 @Controller('auth')
